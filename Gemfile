@@ -71,3 +71,8 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'pagy'
+
+gem "cssbundling-rails", "~> 1.4"
+
+gem "jsbundling-rails", "~> 1.3"
