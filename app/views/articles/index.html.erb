@@ -26,6 +26,7 @@ Total Articles:
       <tr>
         <td><%= index + 1 %></td>
         <td><%= article.title %></td>
+        <td><%= resize_image_tag(article.avatar, 50, 50) if article.avatar.attached? %></td>
         <td><%= article.content %></td>
         <td><%= link_to 'Show', article %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>

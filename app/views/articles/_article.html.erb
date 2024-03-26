@@ -5,6 +5,13 @@
   </p>
 
   <p>
+    <strong>Avatar:</strong>
+    <% if article.avatar.attached? %>
+      <%= resize_image_tag(article.avatar, 200, 200) %>
+    <% end %>
+  </p>
+
+  <p>
     <strong>Content:</strong>
     <%= article.content %>
   </p>
