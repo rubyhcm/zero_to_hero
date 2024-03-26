@@ -1,12 +1,5 @@
-<h1>Articles</h1>
-<%= link_to "New article", new_article_path %>
-<br>
-<br>
-Total Articles:
-<b><%= Article.count %></b>
-<br>
-<p>
-
+PDF generation date:
+<%= Time.zone.now %>
 <table class="article-table">
   <thead>
     <tr>
@@ -18,17 +11,11 @@ Total Articles:
   </thead>
 
   <tbody>
-    <% @articles.each_with_index do |article, index| %>
       <tr>
-        <td><%= index + 1 %></td>
-        <td><%= article.title %></td>
-        <td><%= article.content %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Print', article_path(article, format: :pdf) %></td>
+        <td><%= @article.id %></td>
+        <td><%= @article.title %></td>
+        <td><%= @article.content %></td>
       </tr>
-    <% end %>
   </tbody>
 </table>
 <br>

@@ -6,21 +6,37 @@ Send messages: ```https://api.telegram.org/bot6379697986:AAGSPiv82e1YWf9UAOsbili
 
 # Devise
 ```rails generate devise:install```
-Add ```rails generate devise MODEL``` to config/environments/development.rb
+```rails generate devise User```
+Add ```config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }```to config/environments/development.rb
 
 # Create Post and send to Telegram
 ```rails g scaffold Article title content:text --no-help --no-assets --no-controller-specs --no-view-specs --no-test-framework --no-jbuilder```
 ```rails g mailer TelegramMailer```
 
-# 
+# Export pdf
+```
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+```
+```rails generate wicked_pdf```
+
+Add
+```
+WickedPdf.config ||= {}
+WickedPdf.config.merge!({
+  layout: "pdf",
+  orientation: "Portrait",
+  page_size: "A4"
+})
+```
+to config/initializers/wicked_pdf.rb
+Create template: ```app/views/articles/show.pdf.erb```
+Create main template: ```app/views/layouts/pdf.html.erb```
 
 
 
 
-
-
-
-
+---
 # NOTE
 Rollback
 ```bin/rails destroy scaffold Post```

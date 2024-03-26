@@ -8,6 +8,15 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1 or /articles/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "#{@article.id}"
+        # {@article.id} la pdf file name
+        # neu khong chi dinh template thi se lay theo ten action
+        # render pdf: "#{@article.id}", template: "articles/ten_template" ex: articles/show
+      end
+    end
   end
 
   # GET /articles/new
