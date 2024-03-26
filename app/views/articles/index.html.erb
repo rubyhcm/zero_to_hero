@@ -1,51 +1,73 @@
-<h1>Articles</h1>
-<%= link_to "New article", new_article_path %>
-<br>
-<br>
-Total Articles:
-<b><%= @articles.count %></b>/<b><%= Article.count %></b>
-<br>
-<%== pagy_nav(@pagy) %>
-<br>
-<%== pagy_info(@pagy) %>
-<br>
-<%== pagy_bootstrap_nav(@pagy) %>
+<div class="main">
+  <h1>Articles</h1>
+  <%= link_to "New article", new_article_path %>
+  <br>
+  <br>
+  Total Articles:
+  <b><%= @articles.count %></b>/<b><%= Article.count %></b>
+  <br>
+  <%== pagy_nav(@pagy) %>
+  <br>
+  <%== pagy_info(@pagy) %>
+  <br>
+  <%== pagy_bootstrap_nav(@pagy) %>
 
-<table class="article-table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Avatar</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Images</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each_with_index do |article| %>
+  <table class="article-table">
+    <thead>
       <tr>
-        <td><%= article.id %></td>
-        <td><%= resize_image_tag(article.avatar, 50, 50) if article.avatar.attached? %></td>
-        <td><%= article.title %></td>
-        <td><%= article.content %></td>
-        <td>
-          <% if article.images.attached? %>
-            <% article.images.each do |image| %>
-              <%= resize_image_tag(image, 50, 50) %>
-            <% end %>
-        <% end %>
-        </td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Print', article_path(article, format: :pdf) %></td>
+        <th>ID</th>
+        <th>Avatar</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Images</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
+    </thead>
+
+    <tbody>
+      <% @articles.each_with_index do |article| %>
+        <tr>
+          <td><%= article.id %></td>
+          <td><%= resize_image_tag(article.avatar, 50, 50) if article.avatar.attached? %></td>
+          <td><%= article.title %></td>
+          <td><%= article.content %></td>
+          <td>
+            <% if article.images.attached? %>
+              <div class="file-container">
+                <% article.images.each do |attachment| %>
+                  <% if attachment.image? %>
+                    <div class="file-thumbnail">
+                      <%= resize_image_tag(attachment, 250, 250) %>
+                    </div>
+                  <% elsif attachment.audio? %>
+                    <div class="file-thumbnail">
+                      <audio controls>
+                        <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>"/>
+                      </audio>
+                    </div>
+                  <% elsif attachment.video? %>
+                    <div class="file-thumbnail">
+                      <video controls width="480">
+                        <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>"/>
+                      </video>
+                    </div>
+                  <% else %>
+                    <%= link_to attachment.filename, rails_blob_path(attachment, disposition: "attachment") %>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          </td>
+          <td><%= link_to 'Show', article %></td>
+          <td><%= link_to 'Edit', edit_article_path(article) %></td>
+          <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Print', article_path(article, format: :pdf) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>
 
 <style>
   .article-table th,
@@ -68,7 +90,6 @@ Total Articles:
 
   .article-table th:last-child,
   .article-table td:last-child {
-    padding-right: 20px; /* Tùy chọn: tăng khoảng cách bên phải của cột cuối cùng */
+    padding-right: 20; /* Tùy chọn: tăng khoảng cách bên phải của cột cuối cùng */
   }
 </style>
-
