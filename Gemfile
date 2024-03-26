@@ -69,3 +69,5 @@ end
 gem 'httparty'
 gem 'dotenv-rails'
 gem 'devise'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
