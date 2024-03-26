@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :articles
+  resources :articles do
+    member do
+      delete :purge_avatar
+    end
+  end
   devise_for :users
   resources :telegrams
   root 'homes#index'

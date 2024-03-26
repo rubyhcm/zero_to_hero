@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :set_article, only: %i[ show edit update destroy purge_avatar]
 
   # GET /articles or /articles.json
   def index
@@ -68,6 +68,11 @@ class ArticlesController < ApplicationController
       format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def purge_avatar
+    @article.avatar.purge
+    redirect_back fallback_location: root_path, notice: "success"
   end
 
   private

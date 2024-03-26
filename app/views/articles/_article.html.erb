@@ -8,6 +8,9 @@
     <strong>Avatar:</strong>
     <% if article.avatar.attached? %>
       <%= resize_image_tag(article.avatar, 200, 200) %>
+      <%= link_to "Delete avatar", purge_avatar_article_path(article), data: { turbo_method: :delete }%>
+      <!-- <%= link_to "Delete avatar", purge_avatar_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %> -->
+      <%= button_to "Delete avatar", purge_avatar_article_path(article), method: :delete%>
     <% end %>
   </p>
 
