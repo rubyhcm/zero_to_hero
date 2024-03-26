@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @telegram %>
+
+<div>
+  <%= link_to "Edit this telegram", edit_telegram_path(@telegram) %> |
+  <%= link_to "Back to telegrams", telegrams_path %>
+
+  <%= button_to "Destroy this telegram", @telegram, method: :delete %>
+</div>
