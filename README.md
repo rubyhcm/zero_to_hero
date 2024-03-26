@@ -46,13 +46,35 @@ end
 module ApplicationHelper
   include Pagy::Frontend
 end
-
+```
+```
+<%== pagy_nav(@pagy) %>
+<%== pagy_info(@pagy) %>
+<%== pagy_bootstrap_nav(@pagy) %>
 ```
 
 # Attach avatar
 ```active_storage:install```
+```
+  <div>
+    <%= form.label :avatar%>
+    <%= form.file_field :avatar %>
+  </div>
+```
 
+# Attach multi images
+```  has_many_attached :images```
+```
+<div>
+  <%= form.label :images%>
+  <%= form.file_field :images, multiple: true %>
+</div>
+```
 
+# AWS S3
+Auto delete, update item after calling action destroy, update
+Delete item on S3 ```@article.images.purge```
+```EDITOR=gedit bin/rails credentials:edit```
 
 
 ---
