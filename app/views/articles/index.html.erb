@@ -1,0 +1,59 @@
+<h1>Articles</h1>
+<%= link_to "New article", new_article_path %>
+<br>
+<br>
+Total Articles:
+<b><%= Article.count %></b>
+<br>
+<p>
+
+<table class="article-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each_with_index do |article, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= article.title %></td>
+        <td><%= article.content %></td>
+        <td><%= link_to 'Show', article %></td>
+        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<style>
+  .article-table th,
+  .article-table td {
+    padding: 30px; /* Thiết lập khoảng cách bên trong các ô */
+  }
+
+  .article-table th {
+    background-color: white; /* Tùy chọn: màu nền cho các tiêu đề */
+  }
+
+  .article-table td {
+    border: none; /* Tùy chọn: đường viền cho ô */
+  }
+
+  .article-table th:first-child,
+  .article-table td:first-child {
+    padding-left: 20px; /* Tùy chọn: tăng khoảng cách bên trái của cột đầu tiên */
+  }
+
+  .article-table th:last-child,
+  .article-table td:last-child {
+    padding-right: 20px; /* Tùy chọn: tăng khoảng cách bên phải của cột cuối cùng */
+  }
+</style>
+
