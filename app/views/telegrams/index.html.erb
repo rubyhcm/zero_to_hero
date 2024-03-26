@@ -1,0 +1,12 @@
+<h1>Telegram</h1>
+<h5>Group name: </h5><%=@title %> </h5>
+<h5>Group id: </h5><%= @id %> </h5>
+
+<%= form_tag group_message_path, method: :post do %>
+  <%= text_field_tag :message, nil, required: true, placeholder: "Enter message" %>
+  <%= submit_tag "Send message" %>
+<% end %>
+
+<p style="color: green"><%= notice %></p>
+
+<!-- <%= link_to "Create message", "https://api.telegram.org/bot6379697986:AAGSPiv82e1YWf9UAOsbilii8OvyxQrbGU0/sendMessage?chat_id=-4118806600&text=anhne" %> -->
