@@ -68,3 +68,4 @@ end
 
 gem 'httparty'
 gem 'dotenv-rails'
+gem 'devise'

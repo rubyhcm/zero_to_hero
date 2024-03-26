@@ -1,5 +1,5 @@
 class TelegramsController < ApplicationController
-
+  skip_before_action :authenticate_user!
   # GET /telegrams or /telegrams.json
   def index
     res = HTTParty.get("https://api.telegram.org/#{ENV['BOT_TOKEN']}/getChat?chat_id=#{ENV['CHAT_ID']}")
