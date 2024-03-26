@@ -3,9 +3,13 @@
 <br>
 <br>
 Total Articles:
-<b><%= Article.count %></b>
+<b><%= @articles.count %></b>/<b><%= Article.count %></b>
 <br>
-<p>
+<%== pagy_nav(@pagy) %>
+<br>
+<%== pagy_info(@pagy) %>
+<br>
+<%== pagy_bootstrap_nav(@pagy) %>
 
 <table class="article-table">
   <thead>
