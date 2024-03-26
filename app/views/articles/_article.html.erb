@@ -12,6 +12,15 @@
   </p>
 
   <p>
+    <strong>Images:</strong>
+    <% if article.images.attached? %>
+      <% article.images.each do |image| %>
+        <%= resize_image_tag(image, 50, 50) %>
+      <% end %>
+    <% end %>
+  </p>
+
+  <p>
     <strong>Content:</strong>
     <%= article.content %>
   </p>
