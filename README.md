@@ -8,12 +8,15 @@ Send messages: `https://api.telegram.org/bot6379697986:AAGSPiv82e1YWf9UAOsbilii8
 # Devise
 
 `rails generate devise:install`
+
 `rails generate devise User`
+
 Add `config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }`to config/environments/development.rb
 
 # Create Post and send to Telegram
 
 `rails g scaffold Article title content:text --no-help --no-assets --no-controller-specs --no-view-specs --no-test-framework --no-jbuilder`
+
 `rails g mailer TelegramMailer`
 
 # Export pdf
@@ -37,7 +40,9 @@ WickedPdf.config.merge!({
 ```
 
 to config/initializers/wicked_pdf.rb
+
 Create template: `app/views/articles/show.pdf.erb`
+
 Create main template: `app/views/layouts/pdf.html.erb`
 
 # Pagy
@@ -60,11 +65,9 @@ end
 
 ```
 
-NOTE: Delete these code in application.html.erb
+# Attach avatar
 
-```
-<%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
-```
+`active_storage:install`
 
 ---
 
