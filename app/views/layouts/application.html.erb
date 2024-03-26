@@ -10,7 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="main">
     <p style="color: green" class="notice"><%= notice %></p>
     <p style="color: red" class="alert"><%= alert %></p>
 
@@ -30,3 +30,20 @@
     <%= yield %>
   </body>
 </html>
+
+<style>
+  .file-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+  .file-thumbnail {
+    width: fit-content; /* Độ rộng cố định cho mỗi phần tử */
+    margin-right: 20px; /* Khoảng cách giữa các phần tử */
+  }
+
+  .main {
+    padding: 30px;
+  }
+</style>

@@ -1,4 +1,4 @@
-<div id="<%= dom_id article %>">
+<div id="<%= dom_id article %>" class="main">
   <p>
     <strong>Title:</strong>
     <%= article.title %>
@@ -14,9 +14,29 @@
   <p>
     <strong>Images:</strong>
     <% if article.images.attached? %>
-      <% article.images.each do |image| %>
-        <%= resize_image_tag(image, 50, 50) %>
-      <% end %>
+      <div class="file-container">
+        <% article.images.each do |attachment| %>
+          <% if attachment.image? %>
+            <div class="file-thumbnail">
+              <%= resize_image_tag(attachment, 250, 250) %>
+            </div>
+          <% elsif attachment.audio? %>
+            <div class="file-thumbnail">
+              <audio controls>
+                <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>"/>
+              </audio>
+            </div>
+          <% elsif attachment.video? %>
+            <div class="file-thumbnail">
+              <video controls width="480">
+                <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>"/>
+              </video>
+            </div>
+          <% else %>
+            <%= link_to attachment.filename, rails_blob_path(attachment, disposition: "attachment") %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
   </p>
 
