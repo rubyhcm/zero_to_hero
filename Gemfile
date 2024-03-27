@@ -72,9 +72,9 @@ gem 'devise'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'pagy'
-
 gem "cssbundling-rails", "~> 1.4"
-
 gem "jsbundling-rails", "~> 1.3"
-
 gem "aws-sdk-s3", require: false
+gem 'active_storage_validations'
+gem 'mini_magick'
+gem "image_processing"

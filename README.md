@@ -34,8 +34,7 @@ Create template: ```app/views/articles/show.pdf.erb```
 Create main template: ```app/views/layouts/pdf.html.erb```
 
 # Pagy
-```gem 'pagy'
-```
+```gem 'pagy'```
 ```
 class ApplicationController < ActionController::Base
   include Pagy::Backend
@@ -74,7 +73,18 @@ end
 # AWS S3
 Auto delete, update item after calling action destroy, update
 Delete item on S3 ```@article.images.purge```
-```EDITOR=gedit bin/rails credentials:edit```
+```EDITOR="gedit --wait" bin/rails credentials:edit```
+
+# Validate image
+```
+gem 'active_storage_validations'
+gem 'mini_magick'
+gem "image_processing"
+```
+then add validate to model
+
+On linux, install ```sudo apt-get install libvips-tools```
+
 
 
 ---
