@@ -1,26 +1,35 @@
 # Telegram
-Take Telegram API Token
-Connect to an example API: ```https://api.telegram.org/bot{{API_TOKEN_KEY}}/getMe```
 
-Send messages: ```https://api.telegram.org/bot6379697986:AAGSPiv82e1YWf9UAOsbilii8OvyxQrbGU0/sendMessage?chat_id={{chat_id or group_id}}&text=abc```
+Take Telegram API Token
+Connect to an example API: `https://api.telegram.org/bot{{API_TOKEN_KEY}}/getMe`
+
+Send messages: `https://api.telegram.org/bot6379697986:AAGSPiv82e1YWf9UAOsbilii8OvyxQrbGU0/sendMessage?chat_id={{chat_id or group_id}}&text=abc`
 
 # Devise
-```rails generate devise:install```
-```rails generate devise User```
-Add ```config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }```to config/environments/development.rb
+
+`rails generate devise:install`
+
+`rails generate devise User`
+
+Add `config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }`to config/environments/development.rb
 
 # Create Post and send to Telegram
-```rails g scaffold Article title content:text --no-help --no-assets --no-controller-specs --no-view-specs --no-test-framework --no-jbuilder```
-```rails g mailer TelegramMailer```
+
+`rails g scaffold Article title content:text --no-help --no-assets --no-controller-specs --no-view-specs --no-test-framework --no-jbuilder`
+
+`rails g mailer TelegramMailer`
 
 # Export pdf
+
 ```
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 ```
-```rails generate wicked_pdf```
+
+`rails generate wicked_pdf`
 
 Add
+
 ```
 WickedPdf.config ||= {}
 WickedPdf.config.merge!({
@@ -29,23 +38,30 @@ WickedPdf.config.merge!({
   page_size: "A4"
 })
 ```
+
 to config/initializers/wicked_pdf.rb
-Create template: ```app/views/articles/show.pdf.erb```
-Create main template: ```app/views/layouts/pdf.html.erb```
+
+Create template: `app/views/articles/show.pdf.erb`
+
+Create main template: `app/views/layouts/pdf.html.erb`
 
 # Pagy
-```gem 'pagy'```
+
+`gem 'pagy'`
+
 ```
 class ApplicationController < ActionController::Base
   include Pagy::Backend
   before_action :authenticate_user!
 end
 ```
+
 ```
 module ApplicationHelper
   include Pagy::Frontend
 end
 ```
+
 ```
 <%== pagy_nav(@pagy) %>
 <%== pagy_info(@pagy) %>
@@ -53,7 +69,9 @@ end
 ```
 
 # Attach avatar
-```active_storage:install```
+
+`active_storage:install`
+
 ```
   <div>
     <%= form.label :avatar%>
@@ -62,7 +80,9 @@ end
 ```
 
 # Attach multi images
-```  has_many_attached :images```
+
+`  has_many_attached :images`
+
 ```
 <div>
   <%= form.label :images%>
@@ -71,27 +91,35 @@ end
 ```
 
 # AWS S3
+
 Auto delete, update item after calling action destroy, update
-Delete item on S3 ```@article.images.purge```
-```EDITOR="gedit --wait" bin/rails credentials:edit```
+
+Delete item on S3 `@article.images.purge`
+
+`EDITOR="gedit --wait" bin/rails credentials:edit`
 
 # Validate image
+
 ```
 gem 'active_storage_validations'
 gem 'mini_magick'
 gem "image_processing"
 ```
+
 then add validate to model
 
-On linux, install ```sudo apt-get install libvips-tools```
+On linux, install `sudo apt-get install libvips-tools`
 
 # AWS SES send mail
-Config access: ```AmazonSesSendingAccess``` => IAM
+
+Config access: `AmazonSesSendingAccess` => IAM
 
 USing AWS SES service to send mail
 
 # Add bootstrap and fix errors + gem 'foreman' to run
+
 #### Add bootstrap
+
 ```
 bundle add cssbundling-rails
 ./bin/rails css:install:bootstrap
@@ -102,6 +130,8 @@ bundle add jsbundling-rails
 ./bin/rails javascript:install:esbuild
 ```
 
+#### Fix errors
+
 ```
 yarn add @hotwired/turbo-rails
 ```
@@ -109,7 +139,7 @@ yarn add @hotwired/turbo-rails
 ```
 yarn add @hotwired/stimulus
 ```
-#### Fix errors
+
 ```
 --- a/app/javascript/application.js
 +++ b/app/javascript/application.js
@@ -150,13 +180,13 @@ yarn add @hotwired/stimulus
  //= link_tree ../builds
 ```
 
-```bundle exec foreman start -f Procfile.dev```
-
-
+`bundle exec foreman start -f Procfile.dev`
 
 ---
-# NOTE
-Rollback
-```bin/rails destroy scaffold Post```
 
-```S3, SES, Cloudformation```
+# NOTE
+
+Rollback
+`bin/rails destroy scaffold Post`
+
+`S3, SES, Cloudformation`
