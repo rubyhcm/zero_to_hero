@@ -90,6 +90,70 @@ Config access: ```AmazonSesSendingAccess``` => IAM
 
 USing AWS SES service to send mail
 
+# Add bootstrap and fix errors + gem 'foreman' to run
+#### Add bootstrap
+```
+bundle add cssbundling-rails
+./bin/rails css:install:bootstrap
+```
+
+```
+bundle add jsbundling-rails
+./bin/rails javascript:install:esbuild
+```
+
+```
+yarn add @hotwired/turbo-rails
+```
+
+```
+yarn add @hotwired/stimulus
+```
+#### Fix errors
+```
+--- a/app/javascript/application.js
++++ b/app/javascript/application.js
+-import "controllers"
++import "./controllers";
+```
+
+```
+--- a/app/javascript/controllers/index.js
++++ b/app/javascript/controllers/index.js
+-import { application } from "controllers/application"
+-
+-// Eager load all controllers defined in the import map under controllers/**/*_controller
+-import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
+-eagerLoadControllersFrom("controllers", application)
+-
+-// Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
+-// import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
+-// lazyLoadControllersFrom("controllers", application)
++import { application } from "./application";
+```
+
+```
+--- a/app/views/layouts/application.html.erb
++++ b/app/views/layouts/application.html.erb
+     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+-    <%= javascript_importmap_tags %>
+     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+   </head>
+```
+
+```
+--- a/app/assets/config/manifest.js
++++ b/app/assets/config/manifest.js
+ //= link_tree ../images
+-//= link_tree ../../javascript .js
+-//= link_tree ../../../vendor/javascript .js
+ //= link_tree ../builds
+```
+
+```bundle exec foreman start -f Procfile.dev```
+
+
+
 ---
 # NOTE
 Rollback
