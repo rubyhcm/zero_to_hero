@@ -85,9 +85,14 @@ then add validate to model
 
 On linux, install ```sudo apt-get install libvips-tools```
 
+# AWS SES send mail
+Config access: ```AmazonSesSendingAccess``` => IAM
 
+USing AWS SES service to send mail
 
 ---
 # NOTE
 Rollback
 ```bin/rails destroy scaffold Post```
+
+```S3, SES, Cloudformation```
