@@ -78,3 +78,5 @@ gem "aws-sdk-s3", require: false
 gem 'active_storage_validations'
 gem 'mini_magick'
 gem "image_processing"
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem "omniauth-rails_csrf_protection"

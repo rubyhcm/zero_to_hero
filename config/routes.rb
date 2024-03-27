@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       delete :purge_avatar
     end
   end
-  devise_for :users
+  # devise_for :users
   resources :telegrams
   root 'homes#index'
   post '/group_message' => 'telegrams#group_message'
@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   delete "attachments/:id/purge", to: "attachments#purge", as: "purge_attachment"
+  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
 end
