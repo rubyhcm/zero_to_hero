@@ -8,6 +8,11 @@
     <strong>Avatar:</strong>
     <% if article.avatar.attached? %>
       <%= resize_image_tag(article.avatar, 200, 200) %>
+      <%= link_to "Delete avatar", purge_avatar_article_path(@article), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure to delete avatar?"
+      } %>
+      <!-- <%= button_to "Delete avatar", purge_avatar_article_path(article), method: :delete%> -->
     <% end %>
   </p>
 
@@ -19,18 +24,30 @@
           <% if attachment.image? %>
             <div class="file-thumbnail">
               <%= resize_image_tag(attachment, 250, 250) %>
+              <%= link_to "Delete attachment", purge_attachment_path(attachment), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure to delete attachment?"
+              } %>
             </div>
           <% elsif attachment.audio? %>
             <div class="file-thumbnail">
               <audio controls>
                 <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>"/>
               </audio>
+              <%= link_to "Delete attachment", purge_attachment_path(attachment), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure to delete attachment?"
+              } %>
             </div>
           <% elsif attachment.video? %>
             <div class="file-thumbnail">
               <video controls width="480">
                 <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>"/>
               </video>
+              <%= link_to "Delete attachment", purge_attachment_path(attachment), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure to delete attachment?"
+              } %>
             </div>
           <% else %>
             <%= link_to attachment.filename, rails_blob_path(attachment, disposition: "attachment") %>

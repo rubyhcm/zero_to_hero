@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :articles
+  resources :articles do
+    member do
+      delete :purge_avatar
+    end
+  end
   devise_for :users
   resources :telegrams
   root 'homes#index'
@@ -12,4 +16,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  delete "attachments/:id/purge", to: "attachments#purge", as: "purge_attachment"
 end
