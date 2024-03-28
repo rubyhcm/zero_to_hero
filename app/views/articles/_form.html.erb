@@ -17,27 +17,32 @@
   <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
-  </div>
+  </div><br>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status, Article.statuses.keys, include_blank: true %>
+  </div><br>
 
   <div>
     <%= form.label :content, style: "display: block" %>
     <%= form.text_area :content %>
-  </div>
+  </div><br>
 
   <div>
     <%= form.label :description, style: "display: block" %>
     <%= form.rich_text_area :description %>
-  </div>
+  </div><br>
 
   <div>
     <%= form.label :avatar%>
     <%= form.file_field :avatar %>
-  </div>
+  </div><br>
 
   <div>
     <%= form.label :images%>
     <%= form.file_field :images, multiple: true %>
-  </div>
+  </div><br>
 
   <div>
     <%= form.submit %>
