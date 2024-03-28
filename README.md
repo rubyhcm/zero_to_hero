@@ -186,9 +186,23 @@ yarn add @hotwired/stimulus
 ```bin/rails action_text:install
 ```
 
-```  has_rich_text :description``` description is new column
+```has_rich_text :description``` description is new column
 
+# Add font awesome
+Add ```gem "font-awesome-sass"``` [Docs](https://docs.fontawesome.com/web/use-with/ruby-on-rails)
 
+```yarn add @fortawesome/fontawesome-free```
+
+In package.json, esbuild add ```--loader:.ttf=file --loader:.woff2=file``` at the end
+
+In application.js, add
+```
+import "@fortawesome/fontawesome-free/css/all"
+import "@fortawesome/fontawesome-free/js/all";
+```
+
+Use smth like ```fa-3x ``` for font size.
+Use ```fa-spin``` to make any icon spin. Animating Icons
 
 
 
@@ -208,3 +222,5 @@ Rollback
 `bin/rails destroy scaffold Post`
 
 `S3, SES, Cloudformation`
+
+[Create new Rails app](https://railsnew.app/)

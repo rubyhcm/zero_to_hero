@@ -24,21 +24,28 @@
     <button type="button" class="btn btn-dark">Dark</button>
     <button type="button" class="btn btn-link">Link</button> -->
 
+    <!-- Test for font awesome -->
+    <i class="far fa-address-book"></i>
+    <i class="fab fa-github"></i>
+
     <p style="color: green" class="notice"><%= notice %></p>
     <p style="color: red" class="alert"><%= alert %></p>
 
-    <strong style="color: yellow"><%= link_to "HOME", root_path %></strong>
-    <strong style="color: yellow"><%= link_to "TELEGRAM", telegrams_path %></strong>
-    <strong style="color: yellow"><%= link_to "ARTICLES", articles_path %></strong></br></br>
+    <strong><%= link_to root_path do %>
+      <i class="far fa-gem fa-spin fa-2x"></i>
+      HOME
+    <% end %></strong>
+    <strong><%= link_to 'TELEGRAM', telegrams_path %></strong>
+    <strong><%= link_to 'ARTICLES', articles_path %></strong><br>
     <hr>
     <br>
     <% if user_signed_in? %>
-      <strong style="color: blue">Hello <%= current_user.email.split("@").first.capitalize %></strong>
+      <strong style="color: blue">Hello <%= current_user.email.split('@').first.capitalize %></strong>
       <br>
 
       <%= current_user.nickname %>
       <br>
-      <%= resize_image_tag(current_user.image_url, 100, 100) if current_user.image_url? %>
+      <%= resize_image_tag(current_user.image_url, 100, 100)  if current_user.image_url? %>
       <br>
       <%= current_user.uid %>
       <br>
@@ -47,11 +54,11 @@
 
       <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
       <br>
-      <%= link_to "Account Settings", edit_user_registration_path %>
+      <%= link_to 'Account Settings', edit_user_registration_path %>
     <% else %>
-      <%= link_to "Sign in", new_user_session_path %>
+      <%= link_to 'Sign in', new_user_session_path %>
       <br>
-      <%= link_to "Sign up", new_user_registration_path %>
+      <%= link_to 'Sign up', new_user_registration_path %>
     <% end %>
     <hr>
     <br>
@@ -74,4 +81,12 @@
   .main {
     padding: 30px;
   }
+  .main strong {
+    display: inline-flex; /* hoặc inline-block */
+    margin-right: 20px;
+  }
+  .main strong:last-child {
+    margin-right: 0;
+  }
+
 </style>
