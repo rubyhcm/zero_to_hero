@@ -30,8 +30,10 @@
     <i class="far fa-address-book"></i>
     <i class="fab fa-github"></i>
 
-    <p style="color: green" class="notice"><%= notice %></p>
-    <p style="color: red" class="alert"><%= alert %></p>
+    <p style="color: green"><%= notice %></p>
+    <p style="color: yellow"><%= alert %></p>
+    <p style="color: red"><%= flash[:error] %></p>
+
 
     <strong><%= link_to root_path do %>
       <i class="far fa-gem fa-spin fa-2x"></i>

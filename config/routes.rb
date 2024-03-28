@@ -18,5 +18,8 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   delete "attachments/:id/purge", to: "attachments#purge", as: "purge_attachment"
-  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
+  devise_for :users, controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks",
+    registrations: 'users/registrations'
+  }
 end

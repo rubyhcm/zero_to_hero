@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy purge_avatar]
+  invisible_captcha only: [:create, :update]
 
   # GET /articles or /articles.json
   def index

@@ -13,6 +13,8 @@ Send messages: `https://api.telegram.org/bot6379697986:AAGSPiv82e1YWf9UAOsbilii8
 
 Add `config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }`to config/environments/development.rb
 
+```Trackable``` to show ip
+
 # Create Post and send to Telegram
 
 `rails g scaffold Article title content:text --no-help --no-assets --no-controller-specs --no-view-specs --no-test-framework --no-jbuilder`
@@ -207,7 +209,10 @@ Use ```fa-spin``` to make any icon spin. Animating Icons
 # Add template footer and header
 [Footer](https://mdbootstrap.com/docs/standard/navigation/footer/examples-and-customization/) [Component](https://getbootstrap.com/docs/5.3/layout/css-grid/)
 
+# Captcha
+```gem 'invisible_captcha'``` to prevent two creating on one time
 
+```rails g devise:controllers users -c=registrations``` only to create registrations_controller
 
 
 
