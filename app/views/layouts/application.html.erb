@@ -11,6 +11,8 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
+  <%= render "layouts/header" %>
+
   <body class="main">
 
     <!-- Text using bootstrap -->
@@ -64,6 +66,9 @@
     <br>
     <%= yield %>
   </body>
+
+  <%= render "layouts/footer" %>
+
 </html>
 
 <style>
