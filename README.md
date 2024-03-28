@@ -182,6 +182,24 @@ yarn add @hotwired/stimulus
 
 `bundle exec foreman start -f Procfile.dev`
 
+# Action text
+```bin/rails action_text:install
+```
+
+```  has_rich_text :description``` description is new column
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
 # NOTE

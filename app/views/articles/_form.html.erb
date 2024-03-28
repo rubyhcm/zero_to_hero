@@ -22,6 +22,11 @@
   </div>
 
   <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.rich_text_area :description %>
+  </div>
+
+  <div>
     <%= form.label :avatar%>
     <%= form.file_field :avatar %>
   </div>
