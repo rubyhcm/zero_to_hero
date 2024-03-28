@@ -118,7 +118,7 @@ USing AWS SES service to send mail
 
 # Add bootstrap and fix errors + gem 'foreman' to run
 
-#### Add bootstrap
+#### Add bootstrap: [Boostrap components](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
 ```
 bundle add cssbundling-rails
