@@ -204,6 +204,9 @@ import "@fortawesome/fontawesome-free/js/all";
 Use smth like ```fa-3x ``` for font size.
 Use ```fa-spin``` to make any icon spin. Animating Icons
 
+# Add template footer and header
+[Footer](https://mdbootstrap.com/docs/standard/navigation/footer/examples-and-customization/) [Component](https://getbootstrap.com/docs/5.3/layout/css-grid/)
+
 
 
 
