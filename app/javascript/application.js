@@ -5,3 +5,5 @@ import * as bootstrap from "bootstrap"
 
 import "trix"
 import "@rails/actiontext"
+import "@fortawesome/fontawesome-free/css/all"
+import "@fortawesome/fontawesome-free/js/all";
