@@ -232,3 +232,5 @@ Rollback
 `S3, SES, Cloudformation`
 
 [Create new Rails app](https://railsnew.app/)
+
+`gem 'pundit'`

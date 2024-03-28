@@ -4,6 +4,9 @@ class Article < ApplicationRecord
 
   has_rich_text :description
 
+  enum status: { draft: 'draft', published: 'published', banned: 'banned' }, _default: 'draft'
+
+  validates :title, presence: true
   validates :avatar, attached: true,
   # dimension: { width: { min: 800, max: 2400 } },
   content_type: [:png, :jpg, :jpeg]
