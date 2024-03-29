@@ -84,3 +84,4 @@ gem 'omniauth-google-oauth2'
 gem 'foreman'
 gem "font-awesome-sass"
 gem 'invisible_captcha'
+gem 'pg'

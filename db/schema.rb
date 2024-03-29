@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_28_075547) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_29_040010) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "btree_gin"
+  enable_extension "btree_gist"
+  enable_extension "citext"
+  enable_extension "cube"
+  enable_extension "dblink"
+  enable_extension "dict_int"
+  enable_extension "dict_xsyn"
+  enable_extension "earthdistance"
+  enable_extension "fuzzystrmatch"
+  enable_extension "hstore"
+  enable_extension "intarray"
+  enable_extension "ltree"
+  enable_extension "pg_stat_statements"
+  enable_extension "pg_trgm"
+  enable_extension "pgcrypto"
+  enable_extension "pgrowlocks"
+  enable_extension "pgstattuple"
+  enable_extension "plpgsql"
+  enable_extension "tablefunc"
+  enable_extension "unaccent"
+  enable_extension "uuid-ossp"
+  enable_extension "xml2"
+
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -55,6 +79,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_075547) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
+    t.text "tags", default: [], array: true
   end
 
   create_table "telegrams", force: :cascade do |t|

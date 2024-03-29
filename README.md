@@ -234,3 +234,5 @@ Rollback
 [Create new Rails app](https://railsnew.app/)
 
 `gem 'pundit'`
+
+`bundle exec foreman start -f Procfile.dev`
