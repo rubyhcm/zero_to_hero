@@ -1,1 +1,1 @@
-json.partial! "telegrams/telegram", telegram: @telegram
+json.partial! 'telegrams/telegram', telegram: @telegram

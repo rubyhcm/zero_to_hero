@@ -9,14 +9,13 @@ class TelegramsController < ApplicationController
 
   def group_message
     HTTParty.post("https://api.telegram.org/#{ENV['BOT_TOKEN']}/sendMessage",
-      headers: {
-        'Content-Type' => 'application/json'
-      },
-      body: {
-        chat_id: ENV['CHAT_ID'],
-        text: params[:message]
-      }.to_json
-    )
+                  headers: {
+                    'Content-Type' => 'application/json'
+                  },
+                  body: {
+                    chat_id: ENV['CHAT_ID'],
+                    text: params[:message]
+                  }.to_json)
 
     redirect_to root_path, notice: 'success'
   end
