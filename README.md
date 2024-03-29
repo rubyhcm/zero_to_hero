@@ -214,6 +214,50 @@ Use ```fa-spin``` to make any icon spin. Animating Icons
 
 ```rails g devise:controllers users -c=registrations``` only to create registrations_controller
 
+# Rubocop
+```gem 'rubocop-rails', require: false```
+
+Create .rubocop.yml
+
+Run by ```bundle exec rubocop```
+
+Rubocop a file ```rubocop app/models/user.rb```
+
+#### Disable
+Some codes:
+```
+  # rubocop: disable Metrics/AbcSize, Metrics/MethodLength
+  def full_name
+    ...
+  end
+  # rubocop: enable Metrics/AbcSize, Metrics/MethodLength
+```
+
+All a file:
+```
+# .rubocop.yml
+Metrics/ClassLength:
+  Exclude:
+    - 'app/models/user.rb'
+    - 'app/controllers/users_controller.rb'
+```
+
+#### Auto correct
+```
+# console - safe auto correct
+rubocop -a
+
+# console - dangerous auto correct
+rubocop - A
+
+# console - autocorrect a single specific cop
+bundle exec rubocop -a --only Style/FrozenStringLiteralComment
+bundle exec rubocop -A --only Layout/EmptyLineAfterMagicComment
+
+# generate comments for uncorrected problems and stop flagging them as TODO:
+rubocop --auto-correct --disable-uncorrectable
+```
+
 
 
 
