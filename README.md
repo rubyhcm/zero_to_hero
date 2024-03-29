@@ -217,7 +217,7 @@ Use ```fa-spin``` to make any icon spin. Animating Icons
 # Rubocop
 ```gem 'rubocop-rails', require: false```
 
-Create .rubocop.yml
+Modify config in ```.rubocop.yml```
 
 Run by ```bundle exec rubocop```
 
@@ -258,7 +258,16 @@ bundle exec rubocop -A --only Layout/EmptyLineAfterMagicComment
 rubocop --auto-correct --disable-uncorrectable
 ```
 
+# Gem traceroute
+Find controllers without linked routes
 
+Find routes without linked controller actions
+
+Add ```gem 'traceroute'``` to Gemfile
+
+Check by run ```rake traceroute```
+
+Modify config in ```.traceroute.yaml```
 
 
 
