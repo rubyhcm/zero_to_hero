@@ -85,3 +85,4 @@ gem 'foreman'
 gem "font-awesome-sass"
 gem 'invisible_captcha'
 gem 'pg'
+gem 'rubocop-rails', require: false
