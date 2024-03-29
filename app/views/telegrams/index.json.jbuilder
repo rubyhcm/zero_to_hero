@@ -1,1 +1,1 @@
-json.array! @telegrams, partial: "telegrams/telegram", as: :telegram
+json.array! @telegrams, partial: 'telegrams/telegram', as: :telegram
