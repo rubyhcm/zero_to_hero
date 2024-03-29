@@ -34,6 +34,14 @@
     <%= form.rich_text_area :description %>
   </div><br>
 
+  <%= form.label :tags %>
+  <br>
+  <% Contants::TAGS.each do |key| %>
+    <br>
+    <%= form.check_box :tags, { multiple: true, checked: form.object.tags&.include?(key.to_s) }, key, nil %>
+    <%= form.label key %>
+  <% end %><br>
+
   <div>
     <%= form.label :avatar%>
     <%= form.file_field :avatar %>
