@@ -31,7 +31,10 @@
         <tr>
           <td><%= article.id %></td>
           <td><%= resize_image_tag(article.avatar, 50, 50) if article.avatar.attached? %></td>
-          <td><%= article.title %></td>
+          <td>
+            <%= image_tag(article.qr_code) if article.qr_code.attached? %>
+            <%= image_tag(article.barcode) if article.barcode.attached? %>
+          </td>
           <td><%= article.status %></td>
 
           <td>
