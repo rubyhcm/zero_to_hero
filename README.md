@@ -269,7 +269,14 @@ Check by run ```rake traceroute```
 
 Modify config in ```.traceroute.yaml```
 
+# QRcode
+```
+gem "rqrcode"
+gem "chunky_png"
+gem "barby"
+```
 
+They must have active_storage
 
 
 
@@ -289,3 +296,5 @@ Rollback
 `gem 'pundit'`
 
 `bundle exec foreman start -f Procfile.dev`
+
+```Khac nhau giua cookie va session```

@@ -87,3 +87,6 @@ gem 'invisible_captcha'
 gem 'pg'
 gem 'rubocop-rails', require: false
 gem 'traceroute'
+gem 'rqrcode'
+gem 'chunky_png'
+gem 'barby'

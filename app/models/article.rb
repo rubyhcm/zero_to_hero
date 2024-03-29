@@ -13,4 +13,13 @@ class Article < ApplicationRecord
   # , size: { less_than: 100.kilobytes , message: 'is not given between size' }
 
   validates :images, attached: true, limit: { min: 1, max: 3 }, content_type: %i[png jpg jpeg mp3 mp4 pdf]
+
+  has_one_attached :qr_code
+  has_one_attached :barcode
+
+  after_create :generate_qr
+  def generate_qr
+    GenerateQr.call(self)
+    GenerateBarcode.call(self)
+  end
 end
