@@ -1,0 +1,12 @@
+ignore_unused_routes:
+  - ^rails/conductor/action_mailbox/inbound_emails#edit
+  - ^rails/conductor/action_mailbox/inbound_emails#update
+  - ^rails/conductor/action_mailbox/inbound_emails#update
+  - ^rails/conductor/action_mailbox/inbound_emails#destroy
+  - ^rails/health#show
+  - ^devise/*
+  - ^active_storage/*
+ignore_unreachable_actions:
+  - ^devise_invitable\/
+  - ^devise/*
+  - ^active_storage/*

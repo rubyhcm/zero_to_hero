@@ -7,6 +7,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     handle_auth 'Google'
   end
 
+  private
+
   def handle_auth(kind)
     @user = User.from_omniauth(request.env['omniauth.auth'])
 
@@ -20,8 +22,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def failure
     redirect_to root_path, alert: 'Failure. Please try again'
   end
-
-  private
 
   def user_persisted?
     @user.persisted?
