@@ -13,7 +13,7 @@ Send messages: `https://api.telegram.org/bot6379697986:AAGSPiv82e1YWf9UAOsbilii8
 
 Add `config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }`to config/environments/development.rb
 
-```Trackable``` to show ip
+`Trackable` to show ip
 
 # Create Post and send to Telegram
 
@@ -185,46 +185,55 @@ yarn add @hotwired/stimulus
 `bundle exec foreman start -f Procfile.dev`
 
 # Action text
-```bin/rails action_text:install
+
+```
+bin/rails action_text:install
 ```
 
-```has_rich_text :description``` description is new column
+`has_rich_text :description` description is new column
 
 # Add font awesome
-Add ```gem "font-awesome-sass"``` [Docs](https://docs.fontawesome.com/web/use-with/ruby-on-rails)
 
-```yarn add @fortawesome/fontawesome-free```
+Add `gem "font-awesome-sass"` [Docs](https://docs.fontawesome.com/web/use-with/ruby-on-rails)
 
-In package.json, esbuild add ```--loader:.ttf=file --loader:.woff2=file``` at the end
+`yarn add @fortawesome/fontawesome-free`
+
+In package.json, esbuild add `--loader:.ttf=file --loader:.woff2=file` at the end
 
 In application.js, add
+
 ```
 import "@fortawesome/fontawesome-free/css/all"
 import "@fortawesome/fontawesome-free/js/all";
 ```
 
-Use smth like ```fa-3x ``` for font size.
-Use ```fa-spin``` to make any icon spin. Animating Icons
+Use smth like `fa-3x ` for font size.
+Use `fa-spin` to make any icon spin. Animating Icons
 
 # Add template footer and header
+
 [Footer](https://mdbootstrap.com/docs/standard/navigation/footer/examples-and-customization/) [Component](https://getbootstrap.com/docs/5.3/layout/css-grid/)
 
 # Captcha
-```gem 'invisible_captcha'``` to prevent two creating on one time
 
-```rails g devise:controllers users -c=registrations``` only to create registrations_controller
+`gem 'invisible_captcha'` to prevent two creating on one time
+
+`rails g devise:controllers users -c=registrations` only to create registrations_controller
 
 # Rubocop
-```gem 'rubocop-rails', require: false```
 
-Modify config in ```.rubocop.yml```
+`gem 'rubocop-rails', require: false`
 
-Run by ```bundle exec rubocop```
+Modify config in `.rubocop.yml`
 
-Rubocop a file ```rubocop app/models/user.rb```
+Run by `bundle exec rubocop`
+
+Rubocop a file `rubocop app/models/user.rb`
 
 #### Disable
+
 Some codes:
+
 ```
   # rubocop: disable Metrics/AbcSize, Metrics/MethodLength
   def full_name
@@ -234,6 +243,7 @@ Some codes:
 ```
 
 All a file:
+
 ```
 # .rubocop.yml
 Metrics/ClassLength:
@@ -243,6 +253,7 @@ Metrics/ClassLength:
 ```
 
 #### Auto correct
+
 ```
 # console - safe auto correct
 rubocop -a
@@ -259,17 +270,19 @@ rubocop --auto-correct --disable-uncorrectable
 ```
 
 # Gem traceroute
+
 Find controllers without linked routes
 
 Find routes without linked controller actions
 
-Add ```gem 'traceroute'``` to Gemfile
+Add `gem 'traceroute'` to Gemfile
 
-Check by run ```rake traceroute```
+Check by run `rake traceroute`
 
-Modify config in ```.traceroute.yaml```
+Modify config in `.traceroute.yaml`
 
 # QRcode
+
 ```
 gem "rqrcode"
 gem "chunky_png"
@@ -277,10 +290,6 @@ gem "barby"
 ```
 
 They must have active_storage
-
-
-
-
 
 ---
 
@@ -297,4 +306,4 @@ Rollback
 
 `bundle exec foreman start -f Procfile.dev`
 
-```Khac nhau giua cookie va session```
+`Khac nhau giua cookie va session`
